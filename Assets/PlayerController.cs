@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 0.01f;
+    public float speed = 10f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,21 +19,26 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            this.transform.Translate(0, speed, 0);
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            this.transform.Translate(0, -speed, 0);
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            this.transform.Translate(speed, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            this.transform.Translate(-speed, 0, 0);
-        }
+        //if (Input.GetKey(KeyCode.UpArrow))
+        //{
+        //    this.transform.Translate(0, speed, 0);
+        //}
+        //if (Input.GetKey(KeyCode.DownArrow))
+        //{
+        //    this.transform.Translate(0, -speed, 0);
+        //}
+        //if (Input.GetKey(KeyCode.RightArrow))
+        //{
+        //    this.transform.Translate(speed, 0, 0);
+        //}
+        //if (Input.GetKey(KeyCode.LeftArrow))
+        //{
+        //    this.transform.Translate(-speed, 0, 0);
+        //}
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+
+        Vector3 direction = new Vector3(x, y, 0);
+        transform.position += direction.normalized * speed * Time.deltaTime;
     }
 }
