@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 10f; //public 외부 공용, private 비공개
+    public float speed = 5f; //public 외부 공용, private 비공개
     public GameObject BulletPrefab;
     public float bulletSpeed = 100f;
 
@@ -92,9 +92,12 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject Bullet = Instantiate(BulletPrefab);
-            Bullet.transform.position = transform.position;
-            Bullet.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bulletSpeed);
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject Bullet = Instantiate(BulletPrefab);
+                Bullet.transform.position = transform.position;
+                Bullet.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bulletSpeed);
+            }
         }
     }
 }
