@@ -4,17 +4,17 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 5f; //public 외부 공용, private 비공개
     public GameObject BulletPrefab;
-    public float bulletSpeed = 100f;
+    public float BulletSpeed = 100f;
 
     //int[] scores = new int[5];
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        for(int i = 1; i < 6; i++)
+        /*for(int i = 1; i < 6; i++)
         {
             Debug.Log(i);
-        }
+        }*/
         //int a = 1;
         //switch(a < 5)
         //{
@@ -95,8 +95,10 @@ public class PlayerController : MonoBehaviour
             for (int i = 0; i < 3; i++)
             {
                 GameObject Bullet = Instantiate(BulletPrefab);
-                Bullet.transform.position = transform.position;
-                Bullet.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bulletSpeed);
+                Vector3 bulletPos = transform.position;
+                bulletPos.y += 0.3f * i;
+                Bullet.transform.position = bulletPos;
+                Bullet.GetComponent<Rigidbody2D>().AddForce(Vector2.up * BulletSpeed);
             }
         }
     }

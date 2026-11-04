@@ -3,8 +3,22 @@ using UnityEngine;
 
 public class ConstructorExample : MonoBehaviour
 {
+    void Start()
+    {
+        Adult maria = new Adult("Alice", 26, 165.5f);
+        maria.Age = 10;
+        maria.SetBaseAge(2);
+        Debug.Log(maria.Age);
+        Debug.Log(maria.GetBaseAge());
 
+        //Human jason = maria;
+        //Debug.Log(jason.GetAge());
+
+        //Human Bob = new Human("bob", 26, 165.5f);
+        //Adult tmpA = (Adult)Bob;
+    }
 }
+
 
 class Human
 {
@@ -40,11 +54,11 @@ class Human
     {
 
     }
-    public Human(string _name, int _age, float _height)
+    public Human(string name, int age, float height)
     {
-        name = _name;
-        age = _age;
-        height = _height;
+        this.name = name;
+        this.age = age;
+        this.height = height;
     }
     public void Eat()
     {
@@ -57,5 +71,29 @@ class Human
     public void Sleep()
     {
         Debug.Log("sleep");
+    }
+}
+
+class Adult : Human
+{
+    public Adult(string _name, int _age, float _height) : base(_name, _age, _height)
+    {
+        Age = _age;
+    }
+
+    public void PrintAddress()
+    {
+        Debug.Log(address);
+    }
+
+    public new int Age;
+    public void SetBaseAge(int age)
+    {
+        base.age = age;
+    }
+
+    public int GetBaseAge()
+    {
+        return base.age;
     }
 }
