@@ -11,6 +11,18 @@ public class ConstructorExample : MonoBehaviour
         Debug.Log(maria.Age);
         Debug.Log(maria.GetBaseAge());
 
+        Human Alexis = new Human("alexis", 23, 125);
+        Adult adult_alexis = Alexis as Adult;
+
+        if (adult_alexis == null)
+        {
+            Debug.Log("형변환 실패");
+        }
+        else
+        {
+            Debug.Log("형변환 성공");
+        }
+
         //Human jason = maria;
         //Debug.Log(jason.GetAge());
 

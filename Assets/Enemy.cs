@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
         {
             Die();
         }
+
+        Debug.Log("Enemy Health : " + health);
     }
 
     //public void TakeDamege(float ratio)

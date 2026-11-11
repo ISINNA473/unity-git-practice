@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -5,6 +6,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f; //public 외부 공용, private 비공개
     public GameObject BulletPrefab;
     public float BulletSpeed = 100f;
+
 
     //int[] scores = new int[5];
 
