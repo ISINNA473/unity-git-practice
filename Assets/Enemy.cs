@@ -1,15 +1,15 @@
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     float health = 50.0f;
 
-    public float speed;
+    public float speed = 2.0f;
 
     private void TakeDamege(int value)
     {
         health -= value;
+
         if (health <= 0)
         {
             Die();
@@ -18,15 +18,6 @@ public class Enemy : MonoBehaviour
         Debug.Log("Enemy Health : " + health);
     }
 
-    //public void TakeDamege(float ratio)
-    //{
-    //    health -= (int)(health * ratio);
-    //    if (health <= 0)
-    //    {
-    //        Die();
-    //    }
-    //}
-
     public float GetHealth()
     {
         return health;
@@ -34,7 +25,6 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        //EventManager.RunEnemydieEvent();
         Destroy(this.gameObject);
     }
 
@@ -51,15 +41,9 @@ public class Enemy : MonoBehaviour
     {
 
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        Move();
     }
 }
